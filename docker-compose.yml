@@ -1,19 +1,18 @@
 services:
-  stalwart:
+  stalwart-mail:
     image: stalwartlabs/stalwart:v0.16
-    container_name: stalwart
+    container_name: stalwart-mail
     restart: unless-stopped
     ports:
-      - "25:25"     # SMTP
-      - "465:465"   # SMTPS
-      - "587:587"   # Submission
-      - "110:110"   # POP3
-      - "995:995"   # POP3S
-      - "143:143"   # IMAP
-      - "993:993"   # IMAPS
-      - "4190:4190"  # ManageSieve
-      - "443:443"   # HTTPS / JMAP / web admin
-      - "8080:8080" # management interface, if enabled by config
+      - "25:25"
+      - "465:465"
+      - "587:587"
+      - "110:110"
+      - "995:995"
+      - "143:143"
+      - "993:993"
+      - "4190:4190"
+      - "443:443"
     volumes:
       - stalwart-etc:/etc/stalwart
       - stalwart-data:/var/lib/stalwart
